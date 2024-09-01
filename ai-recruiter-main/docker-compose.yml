@@ -25,16 +25,7 @@ services:
     ports:
       - 27017:27017
 
-  nginx_service:
-    container_name: nginx_container
-    image: nginx:1.25.1-alpine
-    ports:
-      - 80:80
-    volumes:
-      - ./nginx/develop.conf:/etc/nginx/conf.d/default.conf
-      - ./nginx/log:/var/log/nginx/
-    depends_on:
-      - backend_service
+  
 
 volumes:
   mongo_data:
