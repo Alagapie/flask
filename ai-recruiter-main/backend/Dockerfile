@@ -2,19 +2,15 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-RUN apt-get update -y && \
-    apt-get upgrade -y
+# Copy requirements.txt from the `backend` directory
+COPY requirements.txt /app/
 
-COPY requirements.txt /app
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy the rest of the files from the `backend` directory
+COPY . /app/
 
-COPY . /app
-
-# Chmod to entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 
-# Run entrypoint.sh
 ENTRYPOINT ["/app/entrypoint.sh"]
-
