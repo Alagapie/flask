@@ -9,7 +9,7 @@ RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the files from the `backend` directory
-COPY COPY ai-recruiter-main/backend /app/
+COPY  ai-recruiter-main/backend /app/
 
 RUN chmod +x ./entrypoint.sh
 
