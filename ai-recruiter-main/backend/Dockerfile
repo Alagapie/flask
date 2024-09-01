@@ -3,7 +3,7 @@ FROM python:3.10-slim
 WORKDIR /app
 
 # Copy requirements.txt from the `backend` directory
-COPY ai-recruiter-main/backend/requirements.txt /app/
+COPY backend/requirements.txt /app/
 
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
